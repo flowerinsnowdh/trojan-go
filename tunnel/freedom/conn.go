@@ -57,6 +57,16 @@ func (c *PacketConn) WriteTo(p []byte, addr net.Addr) (int, error) {
 	return c.WriteToUDP(p, udpAddr)
 }
 
+func (c *PacketConn) WriteTo(p []byte, conn gt.Conn) (int, error) {
+	if err != nil {
+		return 0, err
+	}
+	udpAddr := &net.UDPAddr{
+		WriteUtils.conn
+	}
+	return c.WriteToUDP(p, udpAddr)
+}
+
 type SocksPacketConn struct {
 	net.PacketConn
 	socksAddr   *net.UDPAddr
